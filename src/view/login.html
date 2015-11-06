@@ -1,0 +1,21 @@
+<section class="panel panel-info formBox">
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-user"></span> Identifiez-vous
+    </div>
+    <div class="panel-body">
+        <form class="form" ng-submit="loginController.login()">
+            <div class="alert alert-danger" ng-show="loginFormError" ng-bind="loginFormError"></div>
+
+            <div class="form-group">
+                <input class="form-control" type="text" required placeholder="Votre nom d'utilisateur" ng-model="loginController.user.username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" required placeholder="Mot de passe" ng-model="loginController.user.password">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-info">C'est parti  <span class="glyphicon glyphicon-log-in"></span></button>
+            </div>
+        </form>
+    </div>
+</section>

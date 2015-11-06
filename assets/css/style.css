@@ -1,0 +1,16 @@
+.line-through {
+	text-decoration: line-through;
+}
+
+.filterForm, .removeTask {
+    margin-top: -7px;
+}
+
+.formBox .form-inline .form-control {
+    width: 49.6%
+}
+
+.formBox {
+    width: 50%;
+    margin: 0 auto
+}

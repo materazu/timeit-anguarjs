@@ -1,0 +1,36 @@
+<div class="alert alert-danger" ng-show="displayRemoveAllAlert">
+    Etes vous certain de supprimer toute la liste ?
+    <a href ng-click="stopRemoveAll('project')">Non !</a>
+</div>
+
+<section id="projectForm" class="panel panel-info">
+    <div class="panel-heading">
+        Ajouter un projet
+    </div>
+    <div class="panel-body text-center">
+        <form class="form form-inline" ng-submit="projectController.save()">
+            <input autocomplete="off" required autofocus class="form-control" type="text" placeholder="Nom de projet" ng-model="projectController.project.title" id="projectTitle">
+
+            <!-- not visible, m8 -->
+            <button type="submit" class="hide"></button>
+        </form>
+    </div>
+</section>
+
+<section id="projectList" class="panel panel-success">
+    <div class="panel-heading">
+        Liste des projets
+
+        <form class="form form-inline pull-right filterForm">
+            <input type="text" ng-model="query.title" placeholder="titre" class="form-control">
+            <a href ng-click="projectController.removeAll()" class="btn btn-danger">Supprimer tout</a>
+        </form>
+    </div>
+    <ul id="projectCollection" class="list-group">
+        <li class="list-group-item" ng-repeat="projectItem in projectCollection | filter:query track by $index">
+            <span class="projectTitle" ng-bind="projectItem.title"></span>
+
+            <a href ng-click="projectController.remove($index)" class="btn btn-danger pull-right removeProject">Supprimer</a>
+        </li>
+    </ul>
+</section>

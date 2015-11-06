@@ -1,0 +1,9 @@
+'use strict';
+
+app
+    .constant('appConfig', {
+        'title': 'Time.it, podomoro style',
+        'controllerSuffix': 'Controller',
+        'signUpFormError': 'Les mots de passe doivent correspondre ;)'
+    })
+;

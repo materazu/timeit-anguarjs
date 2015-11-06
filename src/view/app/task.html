@@ -1,0 +1,44 @@
+<div class="alert alert-danger" ng-show="displayRemoveAllAlert">
+    Etes vous certain de supprimer toute la liste ?
+    <a href ng-click="stopRemoveAll('task')">Non !</a>
+</div>
+
+<section id="taskForm" class="panel panel-info">
+    <div class="panel-heading">
+        Ajouter une tâche
+    </div>
+    <div class="panel-body text-center">
+        <form class="form form-inline" ng-submit="taskController.saveTask()">
+            <select id="taskProject" autofocus class="form-control" required ng-options="project.title as project.title for project in projectCollection track by project.title" ng-model="taskController.task.project">
+                <option value="">-- Selectionnez un projet --</option>
+            </select>
+
+            <input autocomplete="off" required class="form-control" type="text" placeholder="Nom de la tâche" ng-model="taskController.task.title" id="taskTitle">
+
+            <!-- not visible, m8 -->
+            <button type="submit" class="hide"></button>
+        </form>
+    </div>
+</section>
+
+<section id="taskList" class="panel panel-success">
+    <div class="panel-heading">
+        Liste des tâches
+
+        <form class="form form-inline pull-right filterForm">
+            <input type="text" ng-model="taskController.query.title" placeholder="titre" class="form-control">
+            <input type="text" ng-model="taskController.query.project" placeholder="projet" class="form-control">
+            <a href ng-click="taskController.removeAll()" class="btn btn-danger">Supprimer tout</a>
+        </form>
+    </div>
+    <ul id="taskCollection" class="list-group">
+        <li class="list-group-item" ng-class="taskItem.finish ? 'line-through' : ''" ng-repeat="taskItem in taskCollection | filter:taskController.query track by $index">
+            <input type="checkbox" ng-click="taskController.finishTask($index)" ng-checked="taskItem.finish">
+
+            <span class="taskTitle" ng-bind="taskItem.title"></span> -
+            <span class="taskProject" ng-bind="taskItem.project"></span>
+
+            <a href ng-click="taskController.removeTask($index)" class="btn btn-danger pull-right removeTask">Supprimer</a>
+        </li>
+    </ul>
+</section>

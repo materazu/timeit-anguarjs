@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="vendor/boostrap/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<meta charset='UTF-8'>
+	</head>
+
+	<body ng-app="timeit" class="container-fluid">
+        <nav class="navbar navbar-default">
+            <a class="navbar-brand" href="#/" ng-bind="appConfig.title"></a>
+            <nav-menu-item></nav-menu-item>
+        </nav>
+
+        <section class="container" ng-view></section>
+
+		<!-- Vendor -->
+		<script src="vendor/angular.js"></script>
+		<script src="vendor/angular-route.js"></script>
+        <script src="vendor/CryptoJS-master/components/core.js"></script>
+        <script src="vendor/CryptoJS-master/components/md5.js"></script>
+        <script src="vendor/CryptoJS-master/components/sha1.js"></script>
+		<script src="src/localStorage.js"></script>
+		<script src="vendor/chance.js"></script>
+
+		<!-- Bootstrap -->
+		<script src="src/app.js"></script>
+		<script src="src/routing.js"></script>
+
+        <!-- Config -->
+		<script src="src/config/appConfig.js"></script>
+        <script src="src/config/routeConfig.js"></script>
+
+		<!-- Run -->
+		<script src="src/run/initTaskCollection.js"></script>
+		<script src="src/run/initProjectCollection.js"></script>
+		<script src="src/run/stopRemoveAll.js"></script>
+		<script src="src/run/initConfig.js"></script>
+		<script src="src/run/initLogoutLink.js"></script>
+		<script src="src/run/initUser.js"></script>
+
+        <!-- Directive -->
+        <script src="src/directive/navMenuItem.js"></script>
+
+        <!-- Service -->
+        <script src="src/service/baseRepository.js"></script>
+        <script src="src/service/taskRepository.js"></script>
+        <script src="src/service/projectRepository.js"></script>
+        <script src="src/service/userService.js"></script>
+
+        <!-- Factory -->
+        <script src="src/factory/taskProvider.js"></script>
+        <script src="src/factory/projectProvider.js"></script>
+        <script src="src/factory/userProvider.js"></script>
+
+		<!-- Controller -->
+		<script src="src/controller/taskController.js"></script>
+		<script src="src/controller/projectController.js"></script>
+		<script src="src/controller/homepageController.js"></script>
+		<script src="src/controller/loginController.js"></script>
+		<script src="src/controller/signUpController.js"></script>
+	</body>
+</html>
